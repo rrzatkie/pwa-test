@@ -82,10 +82,7 @@ self.addEventListener('message', (event) => {
 self.addEventListener('install', () => {
     caches.open('test-cache').then((cache) => {
         return cache.addAll([
-            'http://192.168.0.161:1337/test-file-1',
-            'http://192.168.0.161:1337/test-file-2',
-            'http://192.168.0.161:1337/test-file-3',
-            'http://192.168.0.161:1337/test-file-4',
+            'https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73751/world.topo.bathy.200407.3x21600x21600.C1.png',
         ]);
     });
 });
