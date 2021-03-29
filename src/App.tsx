@@ -1,13 +1,20 @@
-import { FC } from 'react';
+/* eslint-disable prefer-const */
+import { FC, useState } from 'react';
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
 import './App.css';
 
-// async function quotaEstimate(navigator: any) {
-//     return await navigator.storage.estimate();
-// }
-
 export const App: FC = () => {
+    const [availableStorage, setAvailableStorage] = useState('');
+    const [usedStorage, setUsedStorage] = useState('');
+
+    if ('storage' in navigator && 'estimate' in navigator.storage) {
+        navigator.storage.estimate().then(({ usage, quota }) => {
+            setAvailableStorage(quota?.toString() || '');
+            setUsedStorage(usage?.toString() || '');
+        });
+    }
+
     return (
         <div className="App">
             {/* <header className="App-header">
@@ -46,8 +53,8 @@ export const App: FC = () => {
                 </span>
             </header> */}
             <section>
-                <p>Available space</p>
-                <p>Used space</p>
+                <p>Available space: {availableStorage}</p>
+                <p>Used space: {usedStorage}</p>
                 <button>Add file to cache</button>
             </section>
         </div>
