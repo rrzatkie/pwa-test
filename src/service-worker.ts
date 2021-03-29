@@ -78,3 +78,14 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+self.addEventListener('install', (e) => {
+    caches.open('test-cache').then((cache) => {
+        return cache.addAll([
+            'http://192.168.0.161:1337/test-file-1',
+            'http://192.168.0.161:1337/test-file-2',
+            'http://192.168.0.161:1337/test-file-3',
+            'http://192.168.0.161:1337/test-file-4',
+        ]);
+    });
+});
