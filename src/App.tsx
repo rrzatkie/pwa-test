@@ -1,12 +1,16 @@
 import { FC } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+// import logo from './logo.svg';
+// import { Counter } from './features/counter/Counter';
 import './App.css';
+
+// async function quotaEstimate(navigator: any) {
+//     return await navigator.storage.estimate();
+// }
 
 export const App: FC = () => {
     return (
         <div className="App">
-            <header className="App-header">
+            {/* <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <Counter initialIncrementAmount={2} />
                 <p>
@@ -40,7 +44,12 @@ export const App: FC = () => {
                         React Redux
                     </a>
                 </span>
-            </header>
+            </header> */}
+            <section>
+                <p>Available space</p>
+                <p>Used space</p>
+                <button>Add file to cache</button>
+            </section>
         </div>
     );
 };
